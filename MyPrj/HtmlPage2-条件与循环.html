@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <h2>分支:</h2>
+        显示还是隐藏:<input type="checkbox" v-model:value="isShow" /><br />
+        <div v-if="isShow">
+            你看到了我的青春!
+        </div>
+        <div v-else>
+            看不到!
+        </div>
+        <p v-show="isShow">哈哈哈哈</p>
+        <hr />
+        <h2>循环:</h2>
+        <ul>
+            <li v-for="item in list">
+                {{item.text}}
+            </li>
+        </ul>
+        <br />
+        班级:
+        <select v-model:value="selectedValue">
+            <option value="0">请选择</option>
+            <option v-for="cls in list_type" v-bind:value="cls.classId">{{cls.className}}</option>
+        </select> 选择的值为:{{selectedValue}}
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</body>
+</html>
+<script src="js/vue.min.js"></script>
+<script>
+    var myVue = new Vue({
+        el: "#app",
+        data: {
+            isShow: true,
+            selectedValue:0,
+            list: [
+                { text: "篮球" },
+                { text: "排球" },
+                { text: "桌球" },
+                { text:"足球"}
+            ],
+            list_type: [
+                { classId: 1, className: "T1001" },
+                { classId: 2, className: "T1002" },
+                { classId: 3, className: "T1003" }
+            ]
+        }
+    });
+</script>

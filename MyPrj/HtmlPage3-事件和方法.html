@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" v-on:click="myClick1" value="提交1" /><br />
+        <input type="button" v-on:click="myClick2('张三')" value="提交2" /><br />
+        <input type="button" v-on:click="alert(myClick3())" value="提交3" /><br />
+        <input type="button" v-on:click="alert(myClick4('李四',12))" value="提交4" /><br />
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</body>
+</html>
+<script src="js/vue.min.js"></script>
+<script>
+    var myVue = new Vue({
+        el: "#app",
+        data: {
+        },
+        methods: {
+            //无参数，无返回
+            myClick1: function () {
+                alert("你好!");
+            },
+            //有参数，无返回
+            myClick2: function (name) {
+                alert("你好!" + name);
+            },
+            //无参数，有返回
+            myClick3: function () {
+                return "你好!";
+            },
+            //有参数，有返回
+            myClick4: function (name,age) {
+                return "你好!"+name+"年龄:"+age;
+            }
+        }
+    });
+</script>

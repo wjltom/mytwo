@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        班级:
+        <select v-model:value="selectedValue">
+            <option value="0">请选择</option>
+            <option v-for="cls in list_type" v-bind:value="cls.classId">{{cls.className}}</option>
+        </select>
+        <hr />
+        <h2>封装组建:</h2>
+        <hulei v-bind:svalue="selectedValue" v-bind:data="list_type"></hulei>
+    </div>
+</body>
+</html>
+<script src="js/vue.min.js"></script>
+<script src="js/zj.js"></script>
+<script>
+    var myVue = new Vue({
+        el: "#app",
+        data: {
+            selectedValue:0,
+            list_type: [
+               { classId: 1, className: "T1001" },
+               { classId: 2, className: "T1002" },
+               { classId: 3, className: "T1003" }
+            ]
+        }
+    });
+</script>

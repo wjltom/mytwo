@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="BootStarp/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="BootStarp/css/bootstrap-theme.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" v-model:value="users.email" class="form-control" id="inputEmail3" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" v-model:value="users.pwd" class="form-control" id="inputPassword3" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" v-model:value="users.isSelected"> Remember me
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" v-on:click="btnOk" class="btn btn-default">Sign in</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<script src="BootStarp/js/jquery.min.js"></script>
+<script src="BootStarp/js/bootstrap.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script>
+    var myVue = new Vue({
+        el: "#app",
+        data: {
+            users:{email:"",pwd:"",isSelected:false}
+        },
+        methods: {
+            btnOk: function () {
+                var mes = "邮件:" + this.users.email + "密码:" + this.users.pwd + "是否选中:" + this.users.isSelected;
+                alert(mes);
+            }
+        }
+    });
+
+</script>
